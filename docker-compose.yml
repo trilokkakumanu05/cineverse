@@ -1,0 +1,16 @@
+services:
+  api:
+    build: ./backend
+    container_name: movie-api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  client:
+    build: ./frontend
+    container_name: movie-client
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+    restart: unless-stopped

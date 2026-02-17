@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: Arial;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #000;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SEARCH */
+.search-container {
+  position: relative;
+}
+
+.search-container input {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  background: #222;
+  color: white;
+}
+
+.suggestions {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 350px;
+  background: #141414;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  z-index: 100;
+}
+
+.suggestion-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.suggestion-item:hover {
+  background: #222;
+}
+
+.suggestion-item img {
+  width: 40px;
+  border-radius: 4px;
+}
+
+.suggestion-year {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* HERO */
+.hero {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9) 20%,
+    rgba(0,0,0,0.4) 60%
+  );
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-overlay button {
+  padding: 10px 20px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* GRID */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.movie-card {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+}
+
+/* DETAIL */
+.detail {
+  padding: 40px;
+}
+
+.detail-container {
+  display: flex;
+  gap: 30px;
+}
+
+.back-btn {
+  margin-bottom: 20px;
+}
+
+/* LOADING */
+.spinner {
+  border: 6px solid #333;
+  border-top: 6px solid red;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* ERROR */
+.error {
+  text-align: center;
+  color: red;
+}
+.did-you-mean {
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+.did-you-mean span {
+  color: red;
+  cursor: pointer;
+}
