@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API = "http://localhost:8000";
+const API = "https://cineverse-1x7t.onrender.com";
+
 
 
 
