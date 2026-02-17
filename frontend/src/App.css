@@ -1,168 +1,119 @@
-body {
+* {
   margin: 0;
-  background: #111;
-  color: white;
-  font-family: Arial;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* HEADER */
-.header {
+body {
+  background-color: #0f0f0f;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  background: #000;
-}
-
-.logo {
-  cursor: pointer;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* SEARCH */
-.search-container {
-  position: relative;
-}
-
-.search-container input {
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: none;
-  background: #222;
-  color: white;
-}
-
-.suggestions {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 350px;
-  background: #141414;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  padding: clamp(10px, 2vw, 20px);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  position: sticky;
+  top: 0;
   z-index: 100;
 }
 
-.suggestion-item {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  cursor: pointer;
-  align-items: center;
+.logo {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 700;
+  color: #e50914;
 }
 
-.suggestion-item:hover {
-  background: #222;
+.search-box {
+  padding: 8px 14px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  width: clamp(140px, 25vw, 300px);
+  font-size: clamp(12px, 1.2vw, 14px);
 }
 
-.suggestion-item img {
-  width: 40px;
-  border-radius: 4px;
-}
-
-.suggestion-year {
-  font-size: 0.75rem;
-  color: #aaa;
-}
-
-/* HERO */
+/* HERO SECTION */
 .hero {
-  height: 500px;
+  position: relative;
+  min-height: 55vh;
   background-size: cover;
   background-position: center;
-  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(20px, 5vw, 60px);
 }
 
-.hero::before {
+.hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.9) 20%,
-    rgba(0,0,0,0.4) 60%
-  );
+  background: linear-gradient(to top, #0f0f0f 15%, transparent 60%);
 }
 
-.hero-overlay {
-  position: absolute;
-  bottom: 60px;
-  left: 60px;
-  max-width: 600px;
+.hero-content {
+  position: relative;
   z-index: 2;
+  max-width: min(90%, 700px);
 }
 
-.hero-overlay button {
-  padding: 10px 20px;
-  background: red;
-  border: none;
-  color: white;
-  cursor: pointer;
+.hero h1 {
+  font-size: clamp(20px, 4vw, 42px);
+  margin-bottom: 10px;
 }
 
-/* GRID */
+.hero p {
+  font-size: clamp(12px, 1.5vw, 16px);
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* MOVIE GRID */
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 20px;
-  padding: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+  padding: clamp(15px, 3vw, 40px);
 }
 
 .movie-card {
+  transition: transform 0.3s ease;
   cursor: pointer;
-  transition: 0.3s;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
 }
 
 .movie-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-/* DETAIL */
-.detail {
-  padding: 40px;
+.movie-title {
+  margin-top: 8px;
+  font-size: clamp(12px, 1.3vw, 15px);
+  text-align: center;
 }
 
-.detail-container {
-  display: flex;
-  gap: 30px;
+/* DETAILS PAGE */
+.details-container {
+  padding: clamp(20px, 5vw, 60px);
 }
 
-.back-btn {
+.details-title {
+  font-size: clamp(22px, 3.5vw, 36px);
   margin-bottom: 20px;
 }
 
-/* LOADING */
-.spinner {
-  border: 6px solid #333;
-  border-top: 6px solid red;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: 20px auto;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-
-/* ERROR */
-.error {
-  text-align: center;
-  color: red;
-}
-.did-you-mean {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  color: #bbb;
-}
-
-.did-you-mean span {
-  color: red;
-  cursor: pointer;
+.details-overview {
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.6;
+  opacity: 0.9;
 }
